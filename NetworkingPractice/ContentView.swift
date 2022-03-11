@@ -1,16 +1,22 @@
-//
-//  ContentView.swift
-//  NetworkingPractice
-//
-//  Created by 이해주 on 2022/03/11.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var vm = PostViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List {
+                ForEach (vm.posts) { post in
+                    VStack (alignment: .leading, spacing: 10) {
+                        Text(post.title)
+                            .font(Font.title.bold())
+                        Text(post.body)
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
+            .navigationTitle("Fetch API")
+        }
     }
 }
 
