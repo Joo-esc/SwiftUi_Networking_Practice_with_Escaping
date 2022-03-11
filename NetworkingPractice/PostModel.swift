@@ -1,8 +1,8 @@
-//
-//  PostModel.swift
-//  NetworkingPractice
-//
-//  Created by 이해주 on 2022/03/11.
-//
-
 import Foundation
+
+struct PostModel: Identifiable, Codable {
+    let userId: Int
+    let id: Int
+    let title: String
+    let body: String
+}
